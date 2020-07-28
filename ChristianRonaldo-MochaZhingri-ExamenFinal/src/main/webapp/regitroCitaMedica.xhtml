@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+
+
+
+        <!-- Modal Agregar libro-->
+        <div class="modal fade" id="mediumModal" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+
+
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="mediumModalLabel">Agregar CitaMedica</h5>
+
+                    </div>
+                    <h:form>
+                        <div class="modal-body">
+
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="producto-nombre">Hora</label>
+                                    <h:inputText class="form-control" id="producto-nombre" value="#{citaMedicaBean.hora}" required="true"
+                                                 requiredMessage="Campo Obligatorio"/>
+                                    <h:message for="producto-nombre" style="color:red" />
+                                </div>
+
+
+                                <div class="form-group col-md-6">
+                                    <label for="ISBN">Fecha</label>
+                                    <h:inputText class="form-control" id="ISBN" value="#{citaMedicaBean.fecha}" required="true"
+                                                 requiredMessage="Campo Obligatorio"/>
+                                    <h:message for="ISBN" style="color:red" />
+                                </div>
+
+
+                                <div class="form-group col-md-6">
+                                    <label for="producto-categoria">Pacientes</label>
+                                    <h:selectOneMenu class="form-control" id="producto-categoria" converter="selectOneMenuConverter" value="#{citaMedicaBean.paciente}">
+                                        <f:selectItem  itemLabel="Seleccione..." itemValue="#{null}" noSelectionOption="true"  />
+                                        <f:selectItems  value="#{citaMedicaBean.pacientes}" var="pacienteItem" 
+                                                        itemLabel="#{pacienteItem.nombres}" itemValue="#{pacienteItem}"/>
+                                    </h:selectOneMenu>
+                                    <h:message for="producto-categoria" style="color:red" />
+                                </div>  
+
+                                <!--
+                                                                <div class="form-group col-md-6">
+                                                                    <label for="Numero-paginas">Alergias</label>
+                                                                    <h:inputText class="form-control" id="Numero-paginas" value="#{citaMedicaBean.alergias}" size="4" 
+                                                                                 converter="javax.faces.Integer"/>
+                                
+                                                                </div>
+                                
+                                                                <div class="form-group col-md-6">
+                                                                    <label for="Numero-paginas">Enfermedades Previas</label>
+                                                                    <h:inputText class="form-control" id="Enfermedades Previas" value="#{citaMedicaBean.enfermedadesPrevias}" size="4" 
+                                                                                 converter="javax.faces.Integer"/>
+                                
+                                                                </div>
+                                
+                                                                <div class="form-group col-md-6">
+                                                                    <label for="Numero-paginas">Sintomas</label>
+                                                                    <h:inputText class="form-control" id="sintomas" value="#{citaMedicaBean.sintomas}" size="4" 
+                                                                                 converter="javax.faces.Integer"/>
+                                
+                                                                </div>
+                                -->
+                            </div>
+
+
+
+                            <div class="modal-footer">
+
+
+                                <p:commandButton  class="btn btn-success" value="Guardar Cita"  action="#{citaMedicaBean.guardarCita()}" />
+                            </div>
+                        </div>
+                    </h:form>
+                </div>
+            </div>
+        </div>
+        <!-- END Modal -->
+
+
+
+    </h:body>
+</html>
+
