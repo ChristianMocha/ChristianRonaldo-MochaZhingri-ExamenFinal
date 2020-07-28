@@ -217,7 +217,7 @@ public class CitaMedicaBean implements Serializable {
         cm.setFecha(this.fecha);
         cm.setHora(this.hora);
         
-        citaMedica.setPaciente(this.paciente);
+        //citaMedica.setPaciente(this.paciente);
         citaMedicaFacade.create(cm);
     }
 
@@ -230,8 +230,8 @@ public class CitaMedicaBean implements Serializable {
         p.setCorreoElectronico(this.correoElectronico);
         */
         
-        paciente.addCita(this.citaMedica);
-        pacienteFacade.edit(this.paciente);
+       // paciente.addCita(this.citaMedica);
+       // pacienteFacade.edit(this.paciente);
 
     }
 
